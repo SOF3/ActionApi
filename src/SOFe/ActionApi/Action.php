@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace SOFe\ActionApi;
 
+use pocketmine\command\CommandSender;
+
 /**
  * An action is a target of execution.
  *
@@ -38,7 +40,7 @@ interface Action {
 	 * `isMissingArg` checks on conditions that cannot be fulfilled
 	 * through the resoltuion of arguments yielded in this method.
 	 *
-	 * @return iterable<Arg>
+	 * @phpstan-return iterable<Arg<mixed>>
 	 */
 	public function getArguments() : iterable;
 

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace SOFe\ActionApi;
 
+use pocketmine\command\CommandSender;
+
 /**
  * Represents a type of action.
  *

@@ -4,10 +4,22 @@ declare(strict_types=1);
 
 namespace SOFe\ActionApi;
 
+use Closure;
+use SOFe\ActionApi\Util\CustomFormSubset;
+
 /**
  * An argument required for an action.
+ *
+ * @template T the underlying value type
  */
 interface Arg {
+	/**
+	 * Sets the argument to the inferred value.
+	 *
+	 * @phpstan-param T $value
+	 */
+	public function setInferredValue($value) : void;
+
 	/**
 	 * Parses command arguments for this argument.
 	 *
@@ -15,7 +27,7 @@ interface Arg {
 	 *
 	 * @param string[] $args
 	 */
-	public function fromCommandArgs(array &$args) : bool;
+	public function fromCommandArgs(array &$args) : void;
 
 	/**
 	 * Requests user to fill this argument using form UI.
@@ -27,7 +39,7 @@ interface Arg {
 	 * which includes the list of elements to provide
 	 * and a callback to invoke when the `CustomForm` is returned.
 	 *
-	 * @param Closure(?CustomFormSubset) : void
+	 * @phpstan-param Closure(?CustomFormSubset): void $resolve
 	 */
 	public function createUi(Closure $resolve) : void;
 }
