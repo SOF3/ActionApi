@@ -1,0 +1,20 @@
+name: phpstan
+on:
+  - push
+  - pull_request
+
+jobs:
+  analyze:
+    runs-on: ubuntu-20.04
+    name: analyze
+    steps:
+      - uses: actions/checkout@v2
+      - run: curl https://get.pmmp.io | bash
+        working-directory: ../php
+        name: Install PHP
+      - run: curl https://getcomposer.org/installer | ../php/bin/php7/bin/php
+        name: Install Composer
+      - run: ../php/bin/php7/bin/php composer.phar install
+        name: Install dependencies
+      - run: ../php/bin/php7/bin/php vendor/bin/phpstan analyze
+        name: Perform analysis
