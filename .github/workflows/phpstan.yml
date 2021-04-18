@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: mkdir ../php
-      - run: curl https://get.pmmp.io | bash
+      - run: curl -L https://get.pmmp.io | bash
         working-directory: ../php
         name: Install PHP
       - run: ln -s ../php/bin/php7/bin/php php
