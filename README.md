@@ -78,9 +78,9 @@ final class AddWarpAction implements Action {
 	}
 
 	public function getArguments() : iterable {
-		yield new StringArg("Warp name", $this->name);
-		yield new PositionArg("Warp position", $this->pos);
-		yield new BoolArg("Open to public?", $this->open, true);
+		yield StringArg::new("Warp name", $this->name);
+		yield PositionArg::new("Warp position", $this->pos);
+		yield BoolArg::new("Open to public?", $this->open)->default(true);
 	}
 
 	public function run(CommandSender $sender) : void {
