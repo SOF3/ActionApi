@@ -4,11 +4,20 @@
 		{
 			"type": "vcs",
 			"url": "https://github.com/SOF3/pmforms"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/SOF3/await-std"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/pmmp/PocketMine-MP"
 		}
 	],
 	"require": {
-		"pocketmine/pocketmine-mp": "^3.18.0",
+		"pocketmine/pocketmine-mp": "dev-master",
 		"sof3/await-generator": "^3.1.0",
+		"sof3/await-std": "dev-master",
 		"dktapps/pmforms": "dev-master"
 	},
 	"require-dev": {

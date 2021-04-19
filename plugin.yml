@@ -3,3 +3,6 @@ version: 0.1.0
 api: 3.0.0
 author: SOFe
 main: SOFe\ActionApi\Main
+
+extensions:
+  Core: ">=7.4.0"

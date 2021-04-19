@@ -31,7 +31,7 @@ Implementations provided by `ActionApi`:
 | `GenericListArg` | Yes if element type supports (rearranged as last argument, variadic) | Yes if element type supports (interactive loop) | If element type is inferrable, singleton list |
 | `PlayerArg` (online players only) | Yes (by name prefix or full name) | Yes (`CustomForm` `Dropdown`, or `MenuForm`) | If hook is clicking on a player |
 | `PlayerSetArg` (online players only) | Yes (comma-separated) | Yes (`CustomForm` `Toggle`s) | None |
-| `EntityArg` | No | No | If hook is clicking on an entity |
+| `EntityArg` | No | Yes (click on entity in world) | If hook is clicking on an entity |
 | `BlockTypeArg` | Yes (by name, with variant colon-separated) | Yes (interactive selector with search button) | If hook is clicking on a block |
 | `ItemArg` | Yes (by name, with damage and count colon-separated) | Yes (interactive selector with search button) | If hook is clicking on air, a block or entity (default value is currently held item) |
 | `ItemTypeArg` | Yes (by name, with damage colon-separated) | Yes (interactive selector with search button) | If hook is clicking on air, a block or entity (default value is currently held item) |
