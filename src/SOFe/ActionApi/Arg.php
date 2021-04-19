@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace SOFe\ActionApi;
 
 use Closure;
+use pocketmine\Player;
+use pocketmine\command\CommandSender;
 use SOFe\ActionApi\Util\CustomFormSubset;
 
 /**
@@ -27,7 +29,7 @@ interface Arg {
 	 *
 	 * @param string[] $args
 	 */
-	public function fromCommandArgs(array &$args) : void;
+	public function fromCommandArgs(CommandSender $sender, array &$args) : void;
 
 	/**
 	 * Requests user to fill this argument using form UI.
@@ -41,5 +43,5 @@ interface Arg {
 	 *
 	 * @phpstan-param Closure(?CustomFormSubset): void $resolve
 	 */
-	public function createUi(Closure $resolve) : void;
+	public function createUi(Player $player, Closure $resolve) : void;
 }

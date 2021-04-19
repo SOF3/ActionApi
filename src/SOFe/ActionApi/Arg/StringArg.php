@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace SOFe\ActionApi\Arg;
 
+use function implode;
 use Closure;
 use dktapps\pmforms\element\Input;
+use pocketmine\Player;
+use pocketmine\command\CommandSender;
 use SOFe\ActionApi\Arg;
 use SOFe\ActionApi\Util\CustomFormSubset;
 
@@ -53,7 +56,7 @@ final class StringArg implements Arg {
 		$this->value = $value;
 	}
 
-	public function fromCommandArgs(array &$args) : void {
+	public function fromCommandArgs(CommandSender $sender, array &$args) : void {
 		if($this->implode) {
 			$this->value = implode(" ", $args);
 			$args = [];
@@ -63,7 +66,7 @@ final class StringArg implements Arg {
 		}
 	}
 
-	public function createUi(Closure $resolve) : void {
+	public function createUi(Player $player, Closure $resolve) : void {
 		$resolve(CustomFormSubset::new(function(array $values) : void {
 			$this->value = $values[0];
 		})->add(fn($name) => new Input($name, $this->name, $this->hint, $this->default)));
